@@ -1,0 +1,18 @@
+extends layouts/login-layout.pug
+block content
+    .loginContainer
+        h1 Login
+        p#errr #{errorMessage}
+        form(action="", method="post")
+            input(type="text", name="username", placeholder="Username", required)
+            input(type="password", name="password", placeholder="Password", required)
+            input(type="submit", value="Login")
+        a(href="/register") Need an account? Register Here.
+
+        script.
+            var er1 = document.getElementById("errr");
+                if(er1.innerHTML == ""){
+                er1.style.padding = "0px";
+                }else{
+                    er1.style.padding = "3px";
+                }

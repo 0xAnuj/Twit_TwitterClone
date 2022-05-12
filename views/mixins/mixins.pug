@@ -1,0 +1,27 @@
+mixin createPostForm(userInfo)
+     .postFormContainer
+          .userImageContainer
+               img(src=userInfo.profilePic, alt="pic")
+          .textareaContainer
+               textarea#postTextarea(placeholder="Whats Up?")
+               .buttonsContainer
+                    button#submitPostButton(disabled="") Post    
+
+mixin createReplyModal(userInfo)    
+     #replyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+          .modal-dialog(role='document')
+               .modal-content
+                    .modal-header
+                         h5#replyModalLabel.modal-title Reply
+                         button.close(type='button', data-dismiss='modal', aria-label='Close')
+                         span(aria-hidden='true') &times;
+                    .modal-body
+                         #originalPostContainer
+                         .postFormContainer
+                              .userImageContainer
+                                   img(src=userInfo.profilePic, alt="pic")
+                              .textareaContainer
+                                   textarea#replyTextarea(placeholder="Whats Up?")
+                    .modal-footer
+                         button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                         button#submitReplyButton.btn.btn-primary(type='button', disabled="") Reply
